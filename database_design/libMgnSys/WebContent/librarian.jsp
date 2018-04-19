@@ -64,10 +64,10 @@
 		    if(searchType != null && !searchType.equals("null") && !searchType.equals("")) {
 		    		libPage.setSearchType(searchType);
 		        libPage.setSearchCondition(searchCondition);
-		        String urlSearchCondition = URLEncoder.encode(searchCondition);
-		        String urlSearchType = URLEncoder.encode(searchType);
-		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchCondition", urlSearchCondition);
-		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchType", urlSearchType);
+		        //String urlSearchCondition = URLEncoder.encode(searchCondition);
+		        //String urlSearchType = URLEncoder.encode(searchType);
+		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchCondition", searchCondition);
+		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchType", searchType);
 			    	if(searchCondition != null && !searchCondition.equals("null") && !searchCondition.equals("")) {
 			    		if(searchType.equals("Ssn") ||
 			    		   searchType.equals("Bname"))
@@ -133,11 +133,11 @@
 			if(searchCondition != null && !searchCondition.equals("null") && !searchCondition.equals("")) {
 		    		libPage.setSearchType(searchType);
 		        libPage.setSearchCondition(searchCondition);
-		        String urlSearchCondition = URLEncoder.encode(searchCondition);
-		        String urlSearchType = URLEncoder.encode(searchType);
+		        //String urlSearchCondition = URLEncoder.encode(searchCondition);
+		        //String urlSearchType = URLEncoder.encode(searchType);
 		       
-		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchCondition", urlSearchCondition);
-		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchType", urlSearchType);
+		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchCondition", searchCondition);
+		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchType", searchType);
 	   
 		        if(searchType != null && !searchType.equals("null") && !searchType.equals("")) {
 			    		sql += " WHERE BORROWER."+searchType+" LIKE '%"+searchCondition+"%'";
@@ -195,11 +195,11 @@
 		    		libPage.setSearchType(searchType);
 		        libPage.setSearchCondition(searchCondition);
 		        
-		        String urlSearchCondition = URLEncoder.encode(searchCondition);
-		        String urlSearchType = URLEncoder.encode(searchType);
+		        //String urlSearchCondition = URLEncoder.encode(searchCondition);
+		        //String urlSearchType = URLEncoder.encode(searchType);
 		       
-		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchCondition", urlSearchCondition);
-		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchType", urlSearchType);     
+		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchCondition", searchCondition);
+		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchType", searchType);     
 		        //Fine mgn only contains one searchType(Card_id)
 			    //sql = "SELECT * FROM ("+sql+") AS FINE_INFO WHERE FINE_INFO."+searchType+"="+searchCondition;
 		        //card_id is entered.
@@ -308,11 +308,12 @@
 		    if(searchCondition != null && !searchCondition.equals("null") && !searchCondition.equals("")) {
 		    		libPage.setSearchType(searchType);
 		        libPage.setSearchCondition(searchCondition);
-		        String urlSearchCondition = URLEncoder.encode(searchCondition);
-		        String urlSearchType = URLEncoder.encode(searchType);
+		        
+		        //String urlSearchCondition = URLEncoder.encode(searchCondition);
+		        //String urlSearchType = URLEncoder.encode(searchType);
 		       
-		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchCondition", urlSearchCondition);
-		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchType", urlSearchType);
+		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchCondition", searchCondition);
+		        pageUrl = libPage.concatLinkWithParam(pageUrl, "searchType", searchType);
 		        
 		        if(searchType != null && !searchType.equals("null") && !searchType.equals("")) {
 			    		sql = "SELECT * FROM ("+sql+") AS BOOK_INFO WHERE BOOK_INFO."+searchType+" LIKE '%"+searchCondition+"%'";

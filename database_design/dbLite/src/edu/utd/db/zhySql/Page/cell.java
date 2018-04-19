@@ -9,12 +9,12 @@ package edu.utd.db.zhySql.Page;
 public class cell {
 	//int pageNumber;
 	int rowId;
-	long location; //absolute address
+	short location; //absolute address
 	
-	public long getLocation() {
+	public short getLocation() {
 		return location;
 	}
-	public void setLocation(long location) {
+	public void setLocation(short location) {
 		this.location = location;
 	}
 	

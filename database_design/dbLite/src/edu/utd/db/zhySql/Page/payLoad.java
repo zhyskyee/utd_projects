@@ -7,7 +7,7 @@ package edu.utd.db.zhySql.Page;
 ***********************************************/
 public class payLoad {
 
-	long plOffset; //absolute offset
+	short plOffset; //relative offset
 	byte columnsNumber; 
 	byte[] dataType;
 	String[] data;
@@ -31,10 +31,10 @@ public class payLoad {
 	public void setData(String[] data) {
 		this.data = data;
 	}
-	public long getPlOffset() {
+	public short getPlOffset() {
 		return plOffset;
 	}
-	public void setPlOffset(long plOffset) {
+	public void setPlOffset(short plOffset) {
 		this.plOffset = plOffset;
 	}
 }

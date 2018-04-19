@@ -1,3 +1,4 @@
+package edu.utd.db.zhySql;
 import java.io.RandomAccessFile;
 import java.io.File;
 import java.io.FileReader;
@@ -14,7 +15,7 @@ import static java.lang.System.out;
  * @version 1.0
  */
 public class HexDump {
-
+	/*
 	public static void main(String[] args) {
 		out.println("HexDump\n(c)2018 Chris Irwin Davis");
 		// if(args.length)
@@ -26,7 +27,7 @@ public class HexDump {
 			out.println(e);
 		}
 	}
-	
+	*/
 	/**
 	 * <p>This method is used for debugging.
 	 * @param ram is an instance of {@link RandomAccessFile}. 
