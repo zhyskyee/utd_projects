@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 import edu.utd.db.zhySql.Page.leafCell;
 import edu.utd.db.zhySql.Page.pager;
@@ -322,9 +323,10 @@ public class sqlBase {
 	 *  Main method
 	 */
     public static void main(String[] args) {
-    		
+    		/* Initialize the date store or status */
     		initializeDataStore();
-		/* Display the welcome screen */
+		
+    		/* Display the welcome screen */
 		splashScreen();
 
 		/* Variable to collect user input from the prompt */
@@ -337,7 +339,7 @@ public class sqlBase {
 			// userCommand = userCommand.replace("\n", "").replace("\r", "");
 			parseUserCommand(userCommand);
 		}
-		//TODO:close all the files.
+		
 		System.out.println("Exiting...");
 	}
 
@@ -467,20 +469,19 @@ public class sqlBase {
 				parseDeleteString(userCommand);	
 				break;
 			case "hexdump":
-				String tableName = userDataDir+"/"+userCommand.split(" ")[1]+".tbl";
+				String tableName = userDataDir+"/"+userCommand.split(" ")[1].trim()+".tbl";
 				try {
 					RandomAccessFile file = new RandomAccessFile(tableName,"r");
-					HexDump.displayBinaryHex(file,pager.pageSize);
+					HexDump.displayBinaryHex(file, pager.pageSize);
 				}
 				catch (IOException e) {
 					e.printStackTrace();
 				}
 				break;
 			case "exit":
-				isExit = true;
-				break;
 			case "quit":
 				isExit = true;
+				break;
 			default:
 				System.out.println("I didn't understand the command: \"" + userCommand + "\"");
 				break;
@@ -586,126 +587,7 @@ public class sqlBase {
 		table.close();
 	}
 	
-	public static void printTable(String[] fullColNames, String[] userSelectColNames, Map<Integer, leafCell> tuples) {
-		String colString = "";
-		String recString = "";
-		
-		int[] colNameSpaceTake = new int[userSelectColNames.length];
-		int[] userSelectColIndexSeq = new int[userSelectColNames.length];
-		//print title
-		for (int i = 0; i < userSelectColNames.length; ++i) {
-			String colName = userSelectColNames[i];
-			int colStrLen = colName.length();
-			int gapNo = (colStrLen+2)/4;
-			for (int j = 0; j < gapNo; j++) {
-				colString +=" ";
-			}
-			colString += colName;
-			for (int j = 0; j < gapNo; j++) {
-				colString +=" ";
-			}
-			
-			if(i != userSelectColNames.length-1) {
-				colString+="|";
-			}
-			int index = 0;
-			index = table.getIndexOfColumn(fullColNames, userSelectColNames[i]);
-			if (index != -1) {
-				userSelectColIndexSeq[i] = index;
-			} else {
-				System.out.println("Failed to Print for unknown columns.");
-				return; 
-			}
-			colNameSpaceTake[i] = gapNo*2+colName.length();
-		}
-		
-		System.out.println(colString);
-		
-		String spliter = "";
-		for (int i = 0; i < colString.length(); i++) {
-			spliter+="-";
-		}
-		System.out.println(spliter);
-		//print
-		for (Map.Entry<Integer, leafCell> entry : tuples.entrySet()) {
-			leafCell cell = entry.getValue();
-			int index = -1;
-			String data[] = cell.getPayload().getData();
-			//including rowID
-			for (int k = 0; k < userSelectColIndexSeq.length; ++k) {
-				index = userSelectColIndexSeq[k];
-				String dataPtr = null;
-				if(index == 0) {//indicating the rowid
-					dataPtr = Integer.valueOf(cell.getRowId()).toString();
-				} else {
-					dataPtr = data[index - 1];
-				}
-				int gapNo1 = colNameSpaceTake[k] > dataPtr.length() ? ((colNameSpaceTake[k] - dataPtr.length()) / 2):0;
-				for (int j = 0; j < gapNo1; j++) {
-					recString +=" ";
-				}
-				recString += dataPtr;
-				for (int j = 0; j < gapNo1; j++) {
-					recString +=" ";
-				}
-				
-				if(k != userSelectColIndexSeq.length -1) {
-					recString+="|";
-				}
-			}
-			System.out.println(recString);
-			recString = "";
-		}
-	}
-
-	public static String[] parseCondition(String whereCondition) {
-		String condition[] = new String[3];
-		String values[] = new String[2];
-		
-		if (whereCondition.contains("=")) {
-			values = whereCondition.split("=");
-			condition[0] = values[0].trim();
-			condition[1] = "=";
-			condition[2] = values[1].trim();
-		}
-
-		if (whereCondition.contains(">")) {
-			values = whereCondition.split(">");
-			condition[0] = values[0].trim();
-			condition[1] = ">";
-			condition[2] = values[1].trim();
-		}
-
-		if (whereCondition.contains("<")) {
-			values = whereCondition.split("<");
-			condition[0] = values[0].trim();
-			condition[1] = "<";
-			condition[2] = values[1].trim();
-		}
-
-		if (whereCondition.contains(">=")) {
-			values = whereCondition.split(">=");
-			condition[0] = values[0].trim();
-			condition[1] = ">=";
-			condition[2] = values[1].trim();
-		}
-
-		if (whereCondition.contains("<=")) {
-			values = whereCondition.split("<=");
-			condition[0] = values[0].trim();
-			condition[1] = "<=";
-			condition[2] = values[1].trim();
-		}
-
-		if (whereCondition.contains("<>")) {
-			values = whereCondition.split("<>");
-			condition[0] = values[0].trim();
-			condition[1] = "<>";
-			condition[2] = values[1].trim();
-		}
-
-		return condition;
-	}
+	
 	/**
 	 *  Stub method for updating records
 	 *  @param updateString is a String of the user input
@@ -761,7 +643,6 @@ public class sqlBase {
 		t.close();
 	}
 
-	
 	/**
 	 *  Stub method for creating new tables
 	 *  @param queryString is a String of the user input
@@ -809,7 +690,7 @@ public class sqlBase {
 					if(j == 0) {
 						columnName[i] = tmp[j].trim();
 					} else if (j == 1) {
-						datatype[i] = tmp[j].trim();
+						datatype[i] = tmp[j].trim().toUpperCase();
 					} else {
 						if(columnAttr[i].contains("not null") || columnAttr[i].contains("primary key")) {
 							isNullable[i] = "NO";
@@ -904,7 +785,12 @@ public class sqlBase {
 			rootPageNo = getTableRootPageNumber(tableName);
 		}
 		
-		if (insertColumns != null || insertColumns.length != 0) {
+		if (insertColumns == null) {
+			System.out.println("STUB: NO COLUMNS.");
+			return;
+		}
+		
+		if (insertColumns.length != 0) {
 			if(insertColumns.length != insertValues.length) {
 				System.out.println("STUB: COLUMNS & VALUES NOT MATCH.");
 				return;
@@ -962,7 +848,15 @@ public class sqlBase {
 		String[] table1 = table[1].trim().split(" ");
 		String tableName = table1[0].trim();
 		
-		String[] cond = parseCondition(delete[1]);
+		String[] whereCondition = null;
+		if (delete.length == 2) { 
+			whereCondition = parseCondition(delete[1]);
+		} else if (delete.length == 1) {
+			whereCondition = new String[0];
+		} else {
+			System.out.println("ERROR: UNKNOWN COMMAND.");
+			return;
+		}
 		
 		String dir;
 		int rootPageNo;
@@ -992,9 +886,163 @@ public class sqlBase {
 			}
 			t.setColumns(dataType);
 			t.setIsNullable(isNUllAble);
-			t.deleteTuples(cond);
+			t.deleteTuples(whereCondition);
 			t.close();
 		}
+	}
+	
+	//Inner functions
+	public static void printTable(String[] fullColNames, String[] userSelectColNames, Map<Integer, leafCell> tuples) {
+		String colString = "";
+		String recString = "";
+		
+		int[] colNameSpaceTake = new int[userSelectColNames.length];
+		int[] userSelectColIndexSeq = new int[userSelectColNames.length];
+		
+		if (tuples.isEmpty()) {
+			System.out.println("WARNING: EMPTY RESULTS.");
+			return;
+		}
+		
+		//print title
+		for (int i = 0; i < userSelectColNames.length; ++i) {
+			int index = 0;
+			index = table.getIndexOfColumn(fullColNames, userSelectColNames[i]);
+			if (index != -1) {
+				userSelectColIndexSeq[i] = index;
+			} else {
+				System.out.println("Failed to Print for unknown columns.");
+				return; 
+			}
+		}
+		
+		for (int i = 0; i < userSelectColIndexSeq.length; i++) {
+			String colName = fullColNames[userSelectColIndexSeq[i]];
+			int idx = userSelectColIndexSeq[i];
+			if (colName.equals("rowid") || idx == 0) {
+				TreeSet<Integer> rowIdSet = new TreeSet<Integer>(tuples.keySet());
+				Integer maxRowid = rowIdSet.last(); //Maximum must be at last; 
+				int rowidStrLen = maxRowid.toString().length();
+				colNameSpaceTake[i] = (rowidStrLen > 5 ? rowidStrLen : 5) + 2;
+			} else {
+				int colStrLen = colName.length();
+				idx--; //without rowid
+				for (Map.Entry<Integer, leafCell> entry : tuples.entrySet()) {
+					int actualDataLen = entry.getValue().getPayload().getData()[idx].length();
+					colStrLen = actualDataLen > colStrLen ? actualDataLen : colStrLen;
+				}
+				colNameSpaceTake[i] = colStrLen + 2;
+			}
+		}
+		
+		colString ="|"; //start
+		for (int i = 0; i < userSelectColNames.length; ++i) {
+			String colName = userSelectColNames[i];
+			int colStrLen = colNameSpaceTake[i];
+			int leftGapNo = (colStrLen - colName.length()) / 2;
+			int rightGapNo = colStrLen - leftGapNo - colName.length();
+			
+			for (int j = 0; j < leftGapNo; j++) {
+				colString +=" ";
+			}
+			
+			colString += colName;
+			
+			for (int j = 0; j < rightGapNo; j++) {
+				colString +=" ";
+			}
+			colString+="|";
+		}
+		
+		System.out.println(colString);
+		
+		String spliter = "";
+		for (int i = 0; i < colString.length(); i++) {
+			spliter+="-";
+		}
+		System.out.println(spliter);
+		
+		//print data
+		for (Map.Entry<Integer, leafCell> entry : tuples.entrySet()) {
+			leafCell cell = entry.getValue();
+			int index = -1;
+			String data[] = cell.getPayload().getData();
+			
+			recString = "|";
+			//including rowID
+			for (int k = 0; k < userSelectColIndexSeq.length; ++k) {
+				index = userSelectColIndexSeq[k];
+				String dataPtr = null;
+				if(index == 0) {//indicating the rowid
+					dataPtr = Integer.valueOf(cell.getRowId()).toString();
+				} else {
+					dataPtr = data[index - 1];
+				}
+				
+				int leftGapNo = (colNameSpaceTake[k] - dataPtr.length()) / 2;
+				int rightGapNo = colNameSpaceTake[k] - leftGapNo - dataPtr.length();
+				for (int j = 0; j < leftGapNo; j++) {
+					recString +=" ";
+				}
+				recString += dataPtr;
+				
+				for (int j = 0; j < rightGapNo; j++) {
+					recString +=" ";
+				}
+				
+				recString+="|";
+			}
+			System.out.println(recString);
+		}
+	}
+
+	public static String[] parseCondition(String whereCondition) {
+		String condition[] = new String[3];
+		String values[] = new String[2];
+		
+		if (whereCondition.contains("=")) {
+			values = whereCondition.split("=");
+			condition[0] = values[0].trim();
+			condition[1] = "=";
+			condition[2] = values[1].trim();
+		}
+
+		if (whereCondition.contains(">")) {
+			values = whereCondition.split(">");
+			condition[0] = values[0].trim();
+			condition[1] = ">";
+			condition[2] = values[1].trim();
+		}
+
+		if (whereCondition.contains("<")) {
+			values = whereCondition.split("<");
+			condition[0] = values[0].trim();
+			condition[1] = "<";
+			condition[2] = values[1].trim();
+		}
+
+		if (whereCondition.contains(">=")) {
+			values = whereCondition.split(">=");
+			condition[0] = values[0].trim();
+			condition[1] = ">=";
+			condition[2] = values[1].trim();
+		}
+
+		if (whereCondition.contains("<=")) {
+			values = whereCondition.split("<=");
+			condition[0] = values[0].trim();
+			condition[1] = "<=";
+			condition[2] = values[1].trim();
+		}
+
+		if (whereCondition.contains("<>")) {
+			values = whereCondition.split("<>");
+			condition[0] = values[0].trim();
+			condition[1] = "<>";
+			condition[2] = values[1].trim();
+		}
+
+		return condition;
 	}
 	public static boolean isTablePresent(String dir, String tableName) {
 		String filename = new String(tableName+".tbl");

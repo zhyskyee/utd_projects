@@ -1,7 +1,5 @@
 package edu.utd.db.zhySql.Table;
 
-import java.lang.*;
-
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -85,7 +83,6 @@ public class table {
 		}
 		
 		column.put(columnName, type);
-		//System.out.println("ColumnName:"+columnName+" : DataType:"+type);
 		return true;
 	}
 	
@@ -534,7 +531,6 @@ public class table {
 	public void setTblName(String tblName) {
 		this.tblName = tblName;
 	}
-
 	
 	public int getRootPageNo() {
 		return rootPageNo;
@@ -543,6 +539,7 @@ public class table {
 	public void setRootPageNo(int rootPageNo) {
 		this.rootPageNo = rootPageNo;
 	}
+	
 	public LinkedHashMap<String, Boolean> getIsNullable() {
 		return isNullable;
 	}

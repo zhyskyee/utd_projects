@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.TreeSet;
-
-import javax.swing.plaf.InsetsUIResource;
 
 /***********************************************
 * @author hxz174130@utdallas.edu

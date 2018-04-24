@@ -5,15 +5,10 @@ import java.io.RandomAccessFile;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeSet;
-import java.util.Map.Entry;
-
-import edu.utd.db.zhySql.Table.table;
 /***********************************************
 * @author hxz174130@utdallas.edu
 * 
@@ -321,6 +316,7 @@ public class leafPager extends pager {
 			}//endOfFor
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 			return null;
 		}
 		return b;
@@ -432,15 +428,6 @@ public class leafPager extends pager {
 		return b;
 	}
 	
-	private int getIndexOfKey(Integer[] intSeq, Integer key) {
-		for (int i = 0; i < intSeq.length; i++) {
-			if (intSeq[i].intValue() == key.intValue()) {
-				return i;
-			}
-		}
-		return -1;
-	}
-	
 	public leafCell createLeafCell(int pri, byte[] datatype, String[] values) {
 		leafCell lc = new leafCell();
 		payLoad p = new payLoad();
@@ -493,6 +480,10 @@ public class leafPager extends pager {
 		int unallocatedSpaceStart = (pager.pageHeaderStaticLength + cellNumber * 2);
 		int unallocateSpaceLength = unallocatedSpaceEnd - (unallocatedSpaceStart+2); //1B for the tuple itself
 		byte[] wbytes = leafCell2Bytes(lc);
+		if(wbytes == null || wbytes.length <=0) {
+			System.out.println("ERROR: DATA FROMAT ERROR.");
+			return false;
+		}
 		int lcSize = wbytes.length;
 		
 		TreeSet<Integer> sortedKeySet = new TreeSet<Integer>(cells.keySet());
