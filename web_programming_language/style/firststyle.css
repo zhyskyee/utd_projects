@@ -1,0 +1,127 @@
+body {
+   font: 15px/165% "Lucida Grande", Geneva, Verdana, Arial, Helvetica, sans-serif;
+   margin: .5in;
+   text-align: justify;
+}
+
+ul.a {list-style-type: circle;}
+ul.a li {
+  background: #3399ff;
+}
+
+ul.b {list-style-type: square;}
+
+ol.c {list-style-type: upper-roman;}
+ol.d {list-style-type: lower-alpha;}
+
+article {
+    border-bottom: 1px solid #ddd;
+}
+
+#pictbl {
+  border: 2px solid blue;
+}
+
+#pictbl th,
+#pictbl td {
+  border: 2px solid blue;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+#coursetbl {
+  border: 1px solid black;
+}
+
+#coursetbl td,
+#coursetbl th {
+  border: 1px solid black;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+#name {
+   font-family: Georgia, "Times New Roman", Times, serif;
+   font-size: 200%;	
+}
+
+#title {
+  font-style: oblique;
+  font-size: 200%;
+  font-weight: bold;
+  text-decoration-style: double;
+  text-decoration-line: underline; 
+}
+
+#info {
+   line-height: 130%;
+   margin-left: 10px;
+   text-align: left;
+   font-weight: bolder;
+}
+
+#head {
+   font-weight: bolder;
+   text-decoration-style: wavy;
+   text-decoration-line: underline overline;
+   text-decoration-color: green;
+}
+
+.tblcenter {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.stripetbl {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.stripetbl th,
+.stripetbl td {
+  border: 1px solid black;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.stripetbl tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.solidiv {
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+
+.solidyellowdiv {
+  border: 1px solid black;
+  background-color: yellow;
+}
+
+p.dashediv {
+  border-style: dashed;
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  
+}
+
+nav * {
+  font-weight: bolder;
+  font-size: 150%;
+}
+
+h2 {
+   font-weight: bold;
+}
+
+li {
+   line-height: 135%;
+   margin-bottom: .05in;
+}

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+  <meta name="description" content="Hongyong Zhang's initial home page"></meta>
+  <meta name="keywords" content="HTML,CSS,XHTML,JavaScript"></meta>
+  <meta name="author" content="Hongyong Zhang"></meta>
+  <title>Hongyong Zhang's Prob1 Web Page</title>
+  <link rel="stylesheet" href="style/firststyle.css" type="text/css"></link>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/JavaScript" src="src/exfile.js"></script>
+</head>
+<header>
+  <h1 id="head" class="center">Initial Home Page -- Hongyong Zhang</h1><br>
+</header>
+<body>
+  <nav>
+    <a href="JavaScript:void(0)" id="pic">Pictures of interests</a> | 
+    <a href="JavaScript:void(0)" id="edu">Educational history</a> | 
+    <a href="JavaScript:void(0)" id="pubs">Publications & Patents</a> | 
+    <a href="JavaScript:void(0)" id="course">Relevant courses</a> | 
+    <a href="JavaScript:void(0)" id="cntme">Contact me</a>
+  </nav><br>
+  <article id="piccol" style="border-top: 1px solid #ddd;">
+    <header>
+      <h2 id="name" class="center">Picture of interests</h2>
+    </header>
+    <section>
+      <table id="pictbl" class="tblcenter">
+        <tr>
+          <td>
+            <p id="title">Big Cities:</p>
+            <ul class="a">
+              <li>Beijing</li>
+              <li>Shanghai</li>
+              <li>Guangzhou</li>
+              <li>Taibei</li>
+            </ul>
+          </td>
+          <td>
+            <img src="img/NASA.jpg" width="220" height="300" alt="nasa_china_night" usemap="#chinanight">
+            <map name="chinanight">
+              <area shape="circle" coords="85,95,8" alt="beijing" href="http://en.wikipedia.org/wiki/Beijing">
+              <area shape="circle" coords="110,155,8" alt="shanghai" href="http://en.wikipedia.org/wiki/Shanghai">
+              <area shape="circle" coords="65,205,8" alt="guangzhou" href="http://en.wikipedia.org/wiki/Guangzhou">
+              <area shape="circle" coords="105,202,8" alt="taibei" href="http://en.wikipedia.org/wiki/Taibei">
+            </map>
+          </td>
+        </tr>
+      </table><br>
+    </section>
+  </article>
+
+  <article id="educol">
+    <header>
+      <h2 id="name">Educational history</h2>
+    </header>
+    <section>
+      <ul class="b">
+        <li>Jan, 2018 - Expected Dec, 2019 | The University of Texas at Dallas, Computer Science</li>
+        <li>Aug, 2012 - Jul, 2015 | Sun Yat-sen University, Communication and Transportation Engineering</li>
+        <li>Sep, 2008 - Jun, 2012 | Sun Yat-sen University, Traffic Engineering</li>
+      </ul><br>
+    </section>
+  </article>
+
+  <article id="pubscol">
+    <header>
+      <h2 id="name">Publications & Patents</h2>
+    </header>
+    <section>
+      <ol class="c">
+        <li>Hui Zhang, Hong Yong Zhang, Man Xia Liu. <i>A Study of the Traffic Flow Predictive Model Based on Mathematical Statistics and Stochastic Process.</i> Applied Mechanics and Materials, Vols. 548-549, 2014</li>
+        <li>Zhi Yu, Hai Bo Wang, Hong Yong Zhang. <i>Diffusion Model of PM2.5 Based on Monitoring Data Back Stepping and Emergency Simulation.</i> Environmental Pollution & Control, Vols. 36(09), 2014</li>
+        <li>ChenRui-xiang, ZhangXiao-qiang, PengChao-yang, ZhangHong-yong. <i>A Study on Design and Implementation of Remote Fire Monitoring System for Building.</i> Procedia Engineering, Vols. 52, 2013</li>
+        <li><i>A Location Solver Software for In-car Inertial Navigation System.</i> Software Copyright Registration</li>
+        <li><i>An Independent Startup Device for In-car Electrical Devices.</i> Invention Patent</li>
+      </ol><br>
+    </section>
+  </article>
+
+  <article id="coursecol">
+    <header>
+      <h2 id="name">Relevant courses</h2>
+    </header>
+    <section>
+      <table id="coursetbl">
+        <tr>
+          <th>Course name</th>
+          <th>Semester</th>
+          <th>Date</th>
+        </tr>
+        <tr>
+          <td>CS 5333 DISCRETE STRUCTURES</td>
+          <td>Spring</td>
+          <td>2018</td>
+        </tr>
+        <tr>
+          <td>CS 5348 OPERATING SYSTEMS CONCEPTS</td>
+          <td>Spring</td>
+          <td>2018</td>
+        </tr>
+        <tr>
+          <td>CS 6360 DATABASE DESIGN</td>
+          <td>Spring</td>
+          <td>2018</td>
+        </tr>
+        <tr>
+          <td>CS 6375 MACHINE LEARNING</td>
+          <td>Summer</td>
+          <td>2018</td>
+        </tr>
+        <tr>
+          <td>CS 6366 COMPUTER GRAPHICS</td>
+          <td>Summer</td>
+          <td>2018</td>
+        </tr>
+        <tr>
+          <td>CS 6314 WEB PROGRAMMING LANGUAGES</td>
+          <td>Fall</td>
+          <td>2018</td>
+        </tr>
+        <tr>
+          <td>CS 6320 NATURAL LANGUAGE PROCESSING</td>
+          <td>Fall</td>
+          <td>2018</td>
+        </tr>
+        <tr>
+          <td>CS 6363 DESIGN & ANALYS-COMP ALGORITHM</td>
+          <td>Fall</td>
+          <td>2018</td>
+        </tr>
+      </table><br>
+    </section>
+  </article>
+
+  <article id="cntmecol">
+    <header>
+      <h2 id="name">Contact me</h2>
+    </header>
+    <section>
+      <p id="info">Please provide following information:</p>
+      <form action="index.html" method="post" name="contactme">
+        <table>
+          <tr>
+            <td><label for="fname">First Name</label></td>
+            <td><input type="text" name="firstname" id="fname" placeholder="Your first name..." required></td>
+          </tr>
+          <tr>
+            <td><label for="lname">Last Name</label></td>
+            <td><input type="text" name="lastname" id="lname" placeholder="Your last name..." required></td>
+          </tr>
+          <tr>
+            <td><label for="email">Email Address</label></td>
+            <td><input type="email" name="emailaddr" id="email" placeholder="xxx@xxx.xxx" required></td>
+          </tr>
+          <tr>
+            <td><label for="phonenum">Phone Number</label></td>
+            <td><input type="tel" name="usertel" id="phonenum" placeholder="1234567890" pattern="^\d{10}$" required></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <fieldset>
+                <legend>Gender: </legend>
+                <input type="radio" name="gender" id="male" value="male" required> Male <br>
+                <input type="radio" name="gender" id="female" value="female" required> Female
+              </fieldset>
+            </td>
+          </tr>
+          <tr>
+            <td>Please select this box <br>if you wish to be <br>added to our <br>mailing list</td>
+            <td><input type="checkbox" name="chkMailingList" required></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center">
+              <input type="submit" value="Submit">&nbsp;&nbsp;
+              <input type="reset">
+            </td>
+          </tr>
+        </table><br>
+      </form>
+    </section>
+  </article>
+<article>
+  <h1>Elements for triggered</h1>
+
+  <table id="coursetbl">
+    <tr>
+      <th>Event</th>
+      <th>Effects</th>
+      <th>Elements</th>
+    </tr>
+    <tr>
+      <td rowspan="2">Click</td>
+      <td><button id="hide">hide</button>&nbsp;|&nbsp;<button id="show">show</button></td>
+      <td><p id="phs">This is used for HIDE/SHOW.</p></td>
+    </tr>
+    <tr>
+      <td><button id="toggle">toggle</button></td>
+      <td><p id="ptgl">This is for TOGGLE paragraph.</p></td>
+    </tr>
+    <tr>
+      <td rowspan="3">Dbclick</td>
+      <td><button id="fadein">FadeIn</button>&nbsp;|&nbsp;<button id="fadeout">FadeOut</button></td>
+      <td>
+          <p id="pfa">aaaaaaaaaaaaaaaaaaaaa</p><br>
+          <p id="pfb">bbbbbbbbbbbbbbbbbbbbbb</p><br>
+          <p id="pfc">cccccccccccccccccccc</p>
+      </td>
+    </tr>
+    <tr>
+      <td><button id="fadetoggle">FadeToggle</button></td>
+      <td><p id="pft">This is for FADE TOGGLE paragraph.</p></td>
+    </tr>
+    <tr>
+      <td><button id="fadeto">FadeTo</button>&nbsp;|&nbsp;<button id="fadeback">FadeBack</button></td>
+      <td><p id="pfto" style="color: red;">This is for FADE TO paragraph.</p></td>
+    </tr>
+    <tr>
+      <td>Mouse movein&out</td>
+      <td>Mouse Entered & Leave</td>
+      <td id="tddiv"><br>
+          <div id="div1" style="width:80px;height:80px;background-color:blue;margin: auto;"></div><br>
+      </td>
+    </tr>
+    <tr>
+      <td>Keypress</td>
+      <td><a id="akp" href="JavaScript:void(0)">Press me first(To get focus, anykey)</a></td>
+      <td><br>
+          <div id="div2" style="width:80px;height:80px;background-color:green;margin-left: auto;margin-right: auto;"></div><br>
+      </td>
+    </tr>
+    <tr>
+      <td>KeyDown</td>
+      <td><a id="akd" href="JavaScript:void(0)">Press me first(To get focus, any key)</a></td>
+      <td><br>
+          <div id="div3" style="width:80px;height:80px;background-color:red;margin-left: auto;margin-right: auto;"></div><br>
+      </td>
+    </tr>
+  </table><br>
+</article>
+</body>
+</html>
