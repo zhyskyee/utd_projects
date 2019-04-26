@@ -1,0 +1,14 @@
+#coursetbl {
+  border: 1px solid black;
+}
+
+#coursetbl td,
+#coursetbl th {
+  border: 1px solid black;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+#name {
+   font-family: Georgia, "Times New Roman", Times, serif;
+   font-size: 200%;	
+}

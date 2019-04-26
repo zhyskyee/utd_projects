@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hyman's Start Bootstrap webSite</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+    <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+    <!-- Custom styles for this template -->
+    <link href="css/full-slider.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/firststyle.css" type="text/css"></link>
+    <link rel="stylesheet" href="style/img.upload.css" type="text/css"></link>
+    <link rel="stylesheet" href="css/sign.css"></link>
+   
+    <script src="vendor/jquery/jquery.min.js"></script>
+<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <!-- <script type="text/JavaScript" src="src/exfile.js"></script> -->
+    <!-- <link href="http://cdn.phpoll.com/css/animate.css" rel="stylesheet"> -->
+     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+     <script src="src/img_preview.js" type="text/JavaScript"></script>
+
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Hyman's First Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mr-auto"> <!-- navbar-nav ml-auto -->
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="user_profile.html">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="order_summary_page.html">Order</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sell_page.html">Sell</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact_me.html">Contact</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Sign Up or Sign In</b> <span class="caret"></span></a>
+              <ul id="login-dp" class="dropdown-menu">
+                <li>
+                   <div class="row">
+                      <div class="col-md-12">
+                        Login via
+                        <div class="social-buttons">
+                          <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                          <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                        </div>
+                                        or<span class="error" id="login-meg">&nbsp;</span>
+                         <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                            <div class="form-group">
+                               <label class="sr-only" for="username">User Name</label>
+                               <input type="text" class="form-control" id="username" placeholder="User Name" required>
+                            </div>
+                            <div class="form-group">
+                              <label class="sr-only" for="password">Password</label>
+                              <input type="password" class="form-control" id="password" placeholder="Password" required>
+                              <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                            </div>
+                            <div class="form-group">
+                               <button type="submit" id="submitLogin" class="btn btn-primary btn-block">Sign in</button>
+                            </div>
+                            <div class="checkbox">
+                               <label>
+                               <input type="checkbox"> keep me logged-in
+                               </label>
+                            </div>
+                         </form>
+                      </div>
+                      <div class="col-md-12 bottom text-center">
+                        New here ? <a href="#" data-toggle="modal" data-target="#registerModal"><b>Sign up</b></a>
+                      </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div class="carousel-item active" style="background-color: #dedef8;" href="www.utdallas.edu">
+            <a href="user_profile.html">
+            <img src="img/thumbnails.png" alt="home page picture" style="width: 100%; height: 100%">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>User profile</h3>
+              <p>This is a personal profile for the first slide.</p>
+            </div></a>
+          </div>
+          <!-- Slide Two - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+            <a href="order_summary_page.html">
+            <img src="img/thumbnails.png" alt="order summary page" style="width: 100%; height: 100%">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>User's orders' summary</h3>
+              <p>This is a description for the order's detail.</p>
+            </div></a>
+          </div>
+          <!-- Slide Three - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+            <a href="sell_page.html">
+            <img src="img/thumbnails.png" alt="sell page" style="width: 100%; height: 100%">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Sell page</h3>
+              <p>This is a description for the sell item.</p>
+            </div>
+            </a>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </header>
+
+   
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- large modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/register/do">
+          <div class="modal-header d-block">
+            <div class="d-flex">
+                <h3 class="modal-title" id="myModalLabel">Sign Up</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <h6 class="modal-title" >Please fill in this form to create an account.</h6>
+          </div>
+          <div class="modal-body">
+            <h3 class="page-header"><b>Personal info</b></h3>
+            
+            <div class="container border border-dark rounded" style="padding: 15px;">
+                <div class="form-group form-inline justify-content-center">
+                    <div class="row">
+                       <div class="small-12 medium-2 large-2 columns">
+                         <div class="circle">
+                           <!-- User Profile Image -->
+                           <img class="profile-pic" src="img/thumbnails.png">
+                         </div>
+                         <div class="p-image">
+                           <i class="fa fa-camera upload-button"></i>
+                            <input id="photo" class="file-upload" type="file" accept="image/*"/>
+                         </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                      <label for="first_name" class="col-lg-3 col-form-label">First Name:</label>
+                      <div class="col-lg-9">
+                          <input type="text" class="form-control" id="first_name" name="first_name">
+                      </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                      <label for="last_name" class="col-lg-3 col-form-label">Last name:</label>
+                      <div class="col-lg-9">
+                          <input type="text" class="form-control" id="last_name" name="last_name">
+                      </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                      <label for="email" class="col-lg-3 col-form-label">Email:</label>
+                      <div class="col-lg-9">
+                          <input type="email" class="form-control" id="email" name="email">
+                      </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                      <label for="username" class="col-lg-3 col-form-label">Username:</label>
+                      <div class="col-lg-9">
+                          <input type="text" class="form-control" id="username" name="username">
+                      </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                      <label for="password" class="col-lg-3 col-form-label">Password:</label>
+                      <div class="col-lg-9">
+                          <input type="password" class="form-control" id="password" name="password">
+                      </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                      <label for="cfnpassword" class="col-lg-3 col-form-label">Confirm password:</label>
+                      <div class="col-lg-9">
+                          <input type="password" class="form-control" id="cfnpassword" name="cfnpassword">
+                      </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="row">
+                      <label for="phonenum" class="col-lg-3 col-form-label">Phone:</label>
+                      <div class="col-lg-9">
+                          <input type="tel" class="form-control" id="phonenum" name="phonenum">
+                      </div>
+                  </div>
+                </div>
+            </div>
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Register</button>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
